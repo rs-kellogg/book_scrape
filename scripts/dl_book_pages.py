@@ -1,12 +1,14 @@
 import requests
 from pathlib import Path
+import csv
 
-book_list = ["http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html",
-            "http://books.toscrape.com/catalogue/shakespeares-sonnets_989/index.html",
-            "http://books.toscrape.com/catalogue/sophies-world_966/index.html", 
-            "http://books.toscrape.com/catalogue/shoe-dog-a-memoir-by-the-creator-of-nike_831/index.html",
-            "http://books.toscrape.com/catalogue/sapiens-a-brief-history-of-humankind_996/index.html",
-            ]
+book_list = []
+with open("data/books_list.csv", "r", encoding="utf-8") as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
+        if row:  # Ensure the row is not empty
+            book_list.append(row[1])
+print(book_list)
 
 book_folder = Path("./data/books")
 book_folder.mkdir(parents=True, exist_ok=True)
