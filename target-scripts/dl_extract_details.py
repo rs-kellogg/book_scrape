@@ -68,7 +68,7 @@ def main():
         print(
             f"Error: Directory '{book_html_dir.resolve()}' not found or is not a directory."
         )
-        print(f"Please ensure the directory exists and contains the book HTML files.")
+        print("Please ensure the directory exists and contains the book HTML files.")
         return
 
     print(f"Processing HTML files from: {book_html_dir.resolve()}")

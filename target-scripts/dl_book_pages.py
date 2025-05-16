@@ -69,19 +69,6 @@ def main():
     for i, url in enumerate(book_list):
         download_book(url, book_folder, i)
 
-    # Extract book details from the downloaded HTML file
-    for i, url in enumerate(book_list):
-        filename = url.split("/")[-2] + ".html"
-        filepath = book_folder / filename
-        with open(filepath, "r", encoding="utf-8") as f:
-            html_content = f.read()
-            book_details = extract_book_details(html_content)
-            if book_details:
-                title, upc, price = book_details
-                print(f"Book {i + 1}: Title: {title}, UPC: {upc}, Price: {price}")
-            else:
-                print(f"Failed to extract details for book {i + 1}.")
-
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
