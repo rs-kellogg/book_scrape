@@ -81,7 +81,6 @@ def main():
                 print(f"Book {i + 1}: Title: {title}, UPC: {upc}, Price: {price}")
             else:
                 print(f"Failed to extract details for book {i + 1}.")
-            
 
 
 if __name__ == "__main__":
